@@ -17,7 +17,7 @@ if(args.r || args.rules) {
 
 switch(args._.length) {
     case 0:
-        console.log(JSON.stringify(rps()));
+        console.log(JSON.stringify(rps("none")));
     case 1:
         var player = args._[0].toString().toLowerCase();
         if(player=="rock" || player=="paper" || player=="scissors")
