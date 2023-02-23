@@ -9,7 +9,7 @@ if(args.help || args.h) {
     process.exit(0);
 }
 
-if(args.r || args.rules) {
+if(args.rules || args.r) {
     printRules();
     process.exit(0);
 
@@ -21,7 +21,7 @@ switch(args._.length) {
         process.exit(0);
     case args._.length == 1:
         var player = args._[0].toString().toLowerCase();
-        if(player=="rock" || player=="paper" || player=="scissors")
+        if(player=="rock" || player=="paper" || player=="scissors" || player=="lizard" || player=="spock")
         {
             console.log(JSON.stringify(rpsls(player)));
             process.exit(0);
