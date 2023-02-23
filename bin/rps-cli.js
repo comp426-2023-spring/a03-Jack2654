@@ -22,7 +22,7 @@ switch(args._.length) {
         var player = args._[0].toString().toLowerCase();
         if(player=="rock" || player=="paper" || player=="scissors")
         {
-            console.log(JSON.stringify(rps(playerChoice)));
+            console.log(JSON.stringify(rps(player)));
             process.exit(0);
         } else {
             console.log("Invalid argument");
