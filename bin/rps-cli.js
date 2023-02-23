@@ -15,12 +15,28 @@ if(args.r || args.rules) {
 
 }
 
-if(args._.length > 1) {
-    console.log("[ARGUMENT] is out of range.");
-    printHelp();
-    printRules();
-    process.exit(0);
+switch(args._.length) {
+    case 0:
+        console.log(JSON.stringify(rps()));
+    case 1:
+        var player = args._[0].toString().toLowerCase();
+        if(player=="rock" || player=="paper" || player=="scissors")
+        {
+            console.log(JSON.stringify(rps(playerChoice)));
+            process.exit(0);
+        } else {
+            console.log("Invalid argument");
+            printHelp();
+            printRules();
+            process.exit(0);
+        }
+    default:
+        console.log("[ARGUMENT] is out of range.");
+        printHelp();
+        printRules();
+        process.exit(0);
 }
+
 
 function printHelp() {
     console.log(`Usage: node-rps [SHOT]
@@ -37,9 +53,8 @@ function printHelp() {
 }
 
 function printRules() {
-    console.log(`Examples:
-    node-rps        Return JSON with single player RPS result.
-                    e.g. {"player":"rock"}
-    node-rps rock   Return JSON with results for RPS played against a simulated opponent.
-                    e.g {"player":"rock","opponent":"scissors","result":"win"}`);
+    console.log(`Rules for Rock Paper Scissors:
+    - Scissors CUTS Paper
+    - Paper COVERS Rock
+    - Rock CRUSHES Scissors`);
 }
